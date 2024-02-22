@@ -1,0 +1,16 @@
+.myblogDiv{
+    background-image: linear-gradient(210deg, #183a97 66.5%, #0f4094 100%);
+}
+
+
+.imgBlog{
+    max-width: 100%;
+    height: auto;
+    border-radius:10px
+}
+
+.input-class::placeholder {
+    font-size: 14px; /* Set the desired font size */
+    font-weight:500;
+
+  }

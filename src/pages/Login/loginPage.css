@@ -1,0 +1,26 @@
+.mainDiv {
+    width:"100%";
+    background:
+      url("../../asets/images/loginbg2.png");
+    background-size: cover;
+    background-position:center;
+    /* object-fit: cover; */
+ 
+  }
+  
+  .inputbrdr{
+    border: none !important;
+    /* border-top:none !important;
+    border-left:none !important;
+    border-right:none !important; */
+    outline:none !important;
+    /* border-bottom:"1px groove black" !important; */
+    width:100% !important;
+    background:transparent !important;
+    
+  }
+
+  .forgot:hover{
+    color: #fc2260;
+    
+  }

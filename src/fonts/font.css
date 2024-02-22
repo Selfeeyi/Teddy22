@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'DexaBold';
+    src: url('./Fontspring-DEMO-dexapro-700-bold-italic.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'DexaLight';
+    src: url('./dexapro-300-light.otf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'DexaSemi';
+    src: url('./dexapro-600-semibold.otf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'metroitalic';
+    src: url('./metropolis/Metropolis-ExtraBoldItalic.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+
+
+  @font-face {
+    font-family: 'MetropolisBold';
+    src: url('./Metropolis-ExtraBold.otf') format('truetype'),
+         url('./Metropolis-ExtraBold.otf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }

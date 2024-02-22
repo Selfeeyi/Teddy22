@@ -1,0 +1,168 @@
+.navbar {
+    width: 100%;
+    height: 70px;
+    /* margin: 0.5rem 0; */
+    /* position: absolute; */
+    /* top: 0; */
+    /* z-index: 5; */
+    background-color: #041a68
+    ;
+    /* background: linear-gradient(to right, #11004d, #041a68); */
+    color: var(--color-white);
+    border-bottom: var(--brd2);
+}
+
+.appTxt {
+    /* color: var(--color-title-text); */
+    font-size: 2.5em;
+    font-weight: 700;
+    /* background: linear-gradient(to right, #d11ca7, #fb3c66);  */
+    /* -webkit-background-clip: text; */
+    /* color: transparent; */
+    background-size: 200%;
+    color:#bAF200
+}
+
+.navbarInner {
+    width: 70%;
+    height: 100%;
+    margin: 20px;
+    /* margin-left: 100px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menuBar {
+    width: 20px;
+    height: 20px;
+    display: none;
+    margin: 20px;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+.mobileMenu {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: var(--bg-white);
+    color: white;
+}
+
+.leftSide,
+.rightSide {
+    display: flex;
+    align-items: center;
+}
+.rightSide{
+    margin-left: 80px;
+    /* color: white; */
+}
+
+.leftSide {
+    cursor: pointer;
+}
+
+.img {
+    filter: brightness(0) invert(1);
+    height: 12px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+
+
+.searchBar {}
+
+.menuItem {
+    color: var(--color-p2-text);
+    text-decoration: none;
+    margin-right: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    /* margin-left: 10px; */
+   
+}
+
+.profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilePic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.profileName {
+    margin: 0px 10px;
+}
+
+.arrow {
+    color: white;
+}
+
+.menu {
+    position: absolute;
+    top: 60px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: var(--color-white);
+    display: none;
+    z-index: 1;
+   
+}
+
+.profile:hover .menu {
+    display: block;
+    background-color: red !important;
+}
+
+.menuItemLink {
+    padding: 0.6rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.menuItemLinkTxt:first-child > .menuItemLink {
+    border-radius: 10px 10px 0 0;
+}
+
+.menuItemLinkTxt:last-child > .menuItemLink {
+    border-radius: 0 0 10px 10px;
+}
+
+.menuItemLink:hover {
+    background-color: var(--bg-ash);
+}
+
+.menuItemLinkTxt {
+    width: 100%;
+    color: var(--color-title-text);
+    font-weight: 350;
+    text-decoration: none;
+}
+
+.dnone {
+    display: none;
+}
+
+@media all and (max-width: 480px) {
+    .searchBar{
+        display: none;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .navbarInner{
+        width: 90%;
+    }
+    .searchBar{
+        width: 50%;
+    }
+}
