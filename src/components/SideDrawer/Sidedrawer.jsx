@@ -1,3 +1,4 @@
+
 import { Drawer } from "antd";
 import PropTypes from "prop-types";
 
@@ -23,24 +24,25 @@ const SideDrawer = ({
       bodyStyle={bodyStyle}
       headerStyle={headerStyle}
       onClose={onClose}
-      open={visible}
+      visible={visible} // Corrected the prop name
     >
       <div>{children}</div>
     </Drawer>
   );
 };
+
 export default SideDrawer;
 
 SideDrawer.propTypes = {
   title: PropTypes.string,
   width: PropTypes.string,
   placement: PropTypes.string,
-  closeIcon: PropTypes.element,
-  closable: PropTypes.bool,
+  closeIcon: PropTypes.node, // Changed to PropTypes.node
+  closable: PropTypes.bool, // Changed to PropTypes.bool
   bodyStyle: PropTypes.any,
   headerStyle: PropTypes.any,
-  onclose: PropTypes.func,
-  visible: PropTypes.any,
+  onClose: PropTypes.func, // Changed to onClose
+  visible: PropTypes.bool, // Changed to PropTypes.bool
   children: PropTypes.any,
 };
 
@@ -48,11 +50,11 @@ SideDrawer.defaultProps = {
   title: "",
   width: "",
   placement: "",
-  closeIcon: "",
-  closable: "",
+  closeIcon: null, // Changed to null
+  closable: false, // Changed to false
   bodyStyle: "",
   headerStyle: "",
-  onclose: "",
-  visible: "",
+  onClose: () => {}, // Default onClose function
+  visible: false, // Changed to false
   children: null,
 };

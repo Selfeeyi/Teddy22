@@ -1,8 +1,22 @@
 import React from "react";
 import imge from "../../asets/images/cateringimg.png";
 import imge1 from "../../asets/images/flowerimg.png";
+import Modal from './Modal'
+
+import  { useState } from 'react';
 
 const Orders = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+
   return (
     <div>
       <p
@@ -92,9 +106,28 @@ const Orders = () => {
               fontWeight: "500",
               fontSize: 14,
             }}
+            onClick={handleButtonClick} // Add onClick handler
           >
             REORDER
           </button>
+         
+          <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+  {/* Content of your modal */}
+  <div style={{ textAlign: 'center' }}>
+    <p style={{ fontSize: '1.5rem' }}>Do You want to cancel</p>
+    <button  onClick={handleCloseModal} style={{ fontSize: '1rem', border: '2px solid #041a68', backgroundColor: '#041a68', color: 'white', padding: '10px 20px', borderRadius: '6px', cursor: 'pointer' }}>
+      Ok
+    </button>
+  </div>
+</Modal>
+
+
+
+
+
+
+
+
 
           <button
            

@@ -30,6 +30,8 @@ import cImage02 from "../../asets/images/cImage02.jpg";
 import cImage03 from "../../asets/images/cImage03.jpg";
 import cImage04 from "../../asets/images/cImage04.jpg";
 import getzImg from "../../asets/images/getzImg.png";
+import round1 from "../../asets/images/round1.png";
+import round2 from "../../asets/images/round2.png";
 import App_1 from "../../asets/images/landingImage/App_1.png";
 import App_2 from "../../asets/images/landingImage/App_2.png";
 import App_3 from "../../asets/images/landingImage/App_3.png";
@@ -180,8 +182,8 @@ const Landing = () => {
             </div>
           </div>
 
-          <div style={{ display: "flex", height: 330, width: 600, marginTop: -15, marginLeft: 340 }}>
-            <img src={getzImg} alt="img-getz" style={{ position: "absolute", bottom: '-10px', right: '95px', maxWidth: '33%' }} />
+          <div style={{ display: "flex", height: 300, width: 600, marginTop: -15, marginLeft: 340 }}>
+            <img src={round2} alt="img-getz" style={{ position: "absolute", bottom: '0px', right: '95px', maxWidth: '33%' }} />
           </div>
 
         </div>
