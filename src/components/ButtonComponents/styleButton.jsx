@@ -5,7 +5,7 @@ const Wrapper = styled.button`
       
   border: none;
   border-radius: 15px;
-  color:#baf200;
+  color:${({ color }) => color || "#baf200"} !important;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -17,10 +17,10 @@ const Wrapper = styled.button`
   cursor:pointer;
 `;
 
-const StyledButton = ({ btnName, backgroundcolor, color, height }) => {
+const StyledButton = ({ btnName, backgroundcolor, color, height , onClick}) => {
   return (
-    <Wrapper backgroundcolor={backgroundcolor} color={color} height={height}>
-      {btnName}
+    <Wrapper backgroundcolor={backgroundcolor} color={color} height={height} onClick={onClick}>
+        {btnName}
     </Wrapper>
   );
 }
@@ -28,15 +28,4 @@ const StyledButton = ({ btnName, backgroundcolor, color, height }) => {
 export default StyledButton;
 
 
-// display:flex;
-// align-items:center;
-// justify-content:center;
-// border: "none";
-// color: rgb(186, 242, 0);
-// outline: "none";
-// padding-top:5px;
-// padding-bottom: 5px;
-// width:210px;
-// margin-right:5px;
-// border-radius: 15px;
 

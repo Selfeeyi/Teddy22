@@ -108,7 +108,7 @@ const SearchBar = () => {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        border: "1px solid black",
+        border: "3px solid #d01bae",
         backgroundColor: "var(--bg-white)",
         boxShadow: "1px 1px 1px 1px rgba(0,0,0,0.2)",
       }}

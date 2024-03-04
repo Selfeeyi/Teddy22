@@ -22,9 +22,9 @@ import topapp from '../../asets/images/topimg.png'
 import website_page_Image from "../../asets/images/website_page_Image_1.jpg";
 import image01 from "../../asets/images/image01.png";
 import image02 from "../../asets/images/image02.png";
-import newCater01 from "../../asets/images/newCater01.jpg";
-import newcater02 from "../../asets/images/newCater02.jpg";
-import newcater03 from "../../asets/images/newcater03.jpg";
+import newCater01 from "../../asets/images/newCater07.png";
+import newcater02 from "../../asets/images/newCater05.png";
+import newcater03 from "../../asets/images/newcater06.jpg";
 import cImage01 from "../../asets/images/cImage01.jpg";
 import cImage02 from "../../asets/images/cImage02.jpg";
 import cImage03 from "../../asets/images/cImage03.jpg";
@@ -32,6 +32,7 @@ import cImage04 from "../../asets/images/cImage04.jpg";
 import getzImg from "../../asets/images/getzImg.png";
 import round1 from "../../asets/images/round1.png";
 import round2 from "../../asets/images/round2.png";
+import round3 from "../../asets/images/round3.png";
 import App_1 from "../../asets/images/landingImage/App_1.png";
 import App_2 from "../../asets/images/landingImage/App_2.png";
 import App_3 from "../../asets/images/landingImage/App_3.png";
@@ -73,7 +74,7 @@ const Landing = () => {
   return (
     <div >
       {/* I am going to change background color and logo here ==> KRISHNA KUAMR */}
-      <div style={{ backgroundColor: "#c3eaef" /*, height: '80vh'*/ }}>
+      <div style={{ backgroundColor: "white" /*, height: '80vh'*/ }}>
         <NavigationBar2 />
 
         <div
@@ -162,8 +163,8 @@ const Landing = () => {
                 <div>
                   <button
                     style={{
-                      backgroundColor: "var(--background-color)",
-                      color: "var(--text-color)",
+                      backgroundColor: "#4f026e",
+                      color: "white",
                       outline: "none",
                       border: "none",
                       width: "100%",
@@ -183,7 +184,7 @@ const Landing = () => {
           </div>
 
           <div style={{ display: "flex", height: 300, width: 600, marginTop: -15, marginLeft: 340 }}>
-            <img src={round2} alt="img-getz" style={{ position: "absolute", bottom: '0px', right: '95px', maxWidth: '33%' }} />
+            <img src={round3} alt="img-getz" style={{ position: "absolute", bottom: '0px', right: '95px', maxWidth: '33%' }} />
           </div>
 
         </div>
@@ -578,7 +579,7 @@ const Landing = () => {
           paddingInline: "5%",
           paddingBlock: "3%",
           borderBottom: "1px groove #efefef",
-          backgroundColor: "#fff0f3",
+          backgroundColor: "#ddd7dd",
         }}
       >
         <TopBrands />

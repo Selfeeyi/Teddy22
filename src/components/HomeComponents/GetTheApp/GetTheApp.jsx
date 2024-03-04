@@ -3,9 +3,10 @@ import { useState } from "react";
 import css from "./GetTheApp.module.css";
 
 // import mobileImg from '/images/mobile.png'
-import mobileImg from "../../../asets/images/mblimg2.png";
-import playstoreImg from "/icons/appstore.png";
-import appstoreImg from "/icons/playstore.png";
+import mobileImg from "../../../asets/images/mblimg4.png";
+import playstoreImg from "/icons/appstore2.png";
+import appstoreImg from "/icons/playstore2.png";
+import mobileImg2 from "../../../asets/images/girl.png";
 
 let GetTheApp = () => {
   let [inputType, setInpuutType] = useState(true);
@@ -15,7 +16,7 @@ let GetTheApp = () => {
     <div className={css.outerDiv}>
       <div className={css.innerDiv}>
         <div className={css.leftSec}>
-          <img src={mobileImg} alt="mobile img" />
+          <img src={mobileImg2} alt="mobile img" />
         </div>
         <div className={css.rightSec}>
           <div className={css.title} style={{ fontFamily: "DexaSemi" }}>
@@ -103,7 +104,11 @@ let GetTheApp = () => {
             </div>
           </div>
         </div>
+     
       </div>
+      <div className={css.leftSec}>
+          <img src={mobileImg} alt="mobile img" />
+        </div>
     </div>
   );
 };

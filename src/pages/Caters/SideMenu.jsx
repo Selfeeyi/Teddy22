@@ -1,5 +1,8 @@
 import React, { useState} from "react";
 import {filterOption} from '../../common/constant';
+
+
+
 import css from "../ShowCase/ShowCase.module.css";
 import './caters.module.css';
 
@@ -33,20 +36,22 @@ const SideMenu = () =>{
         {filterOption.map((item, i) => (
           <div
             key={i}
+            value
             onClick={() => setIval(i)}
             className={ival === i ? 'active-border':''}
             style={{
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
+              color:'white',
               gap: "5%",
-             borderLeft: ival === i ? "4px solid rgb(4, 26, 104)" : "",
+             borderLeft: ival === i ? "4px solid white" : "",
               borderTop: ival === i ? "1px groove #dee2e6" : "",
               borderBottom: ival === i ? "1px groove #dee2e6" : "",
               paddingBlock: "1%",
               paddingLeft: "2%",
               // background:'rgb(195, 234, 239)'
-              background:ival === i ? "rgb(195, 234, 239)" : ""
+              background:ival === i ? "#4f026e" : ""
             }}
           >
             <div
@@ -63,7 +68,7 @@ const SideMenu = () =>{
                 <p
                   style={{
                     fontWeight: ival === i ? "700" : "",
-                    color: ival === i ? "rgb(4, 26, 104)" : "rgb(16 16 16)",
+                    color: ival === i ? "white" : "rgb(16 16 16)",
                   }}
                 >
                   {item.label}
@@ -76,14 +81,14 @@ const SideMenu = () =>{
                 style={{
                   textAlign: "end",
                   fontWeight: ival === i ? "600" : "",
-                  color: ival === i ? "rgb(4, 26, 104)" : "rgb(16 16 16)",
+                  color: ival === i ? "white" : "rgb(16 16 16)",
                   paddingRight: 10,
                 }}
               >
                 {item.quantity}
               </p>
             </div>
-          </div>
+           </div>
         ))}
       </div> 
     </div>

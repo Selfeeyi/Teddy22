@@ -8,10 +8,9 @@ const MODAL_STYLES = {
   backgroundColor: "white",
   zIndex: 1000,
   borderRadius: 20,
-  width: "30%",
-//   padding:'0px 1px 0px',
-
+  width: "40%", // Adjusted width
 };
+
 
 const OVERLAY_STYLES = {
   position: "fixed",

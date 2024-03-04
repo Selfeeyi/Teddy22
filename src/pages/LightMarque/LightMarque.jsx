@@ -423,7 +423,7 @@ let LightMarque = () => {
         </div>
 
 
-        <div style={{  borderBottom:currentPath === '/geztemart' ? '4px solid black' : '', paddingBottom:currentPath === '/geztemart'?10:""}}>
+        <div style={{  borderBottom:currentPath === '/geztemart' ? '4px solid #e42b88' : '', paddingBottom:currentPath === '/geztemart'?10:""}}>
           <button
             onClick={() => navigate("/geztemart")}
             style={{

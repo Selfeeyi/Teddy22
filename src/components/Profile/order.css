@@ -1,0 +1,191 @@
+.container {
+    display: flex;
+   
+    gap: 6px;
+   color:grey
+   
+  }
+  .container > div {
+    /* background-color: rgb(1, 87, 1); */
+
+    padding: 5px 10px; 
+
+  }
+
+  .container > div:nth-child(1) {
+    border-radius: 5px;
+    font-size: 1.4rem;
+    color: grey;
+    cursor: pointer;
+  
+  }
+  .container > div:nth-child(2) {
+    border-radius: 5px;
+    font-size: 1.4rem;
+    color: grey;
+    cursor: pointer;
+  }
+  .container > div:nth-child(3) {
+    border-radius: 5px;
+    font-size: 1.4rem;
+    color: grey;
+    cursor: pointer;
+  }
+  .container > div:nth-child(4) {
+    border-radius: 5px;
+    font-size: 1.4rem;
+    color: grey;
+    cursor: pointer;
+  }
+  .container > div:nth-child(5) {
+    border-radius: 5px;
+    color: grey ;
+    font-size: 1.4rem;
+   font-weight: bold;
+   cursor: pointer;
+  } 
+  .outerDiv{
+    width: 100%;
+    min-height: 250px;
+    height: max-content;
+    box-shadow: var(--box-shadow2);
+    overflow-y: hidden;
+    margin-top: 2rem;
+}
+
+.innerDiv{
+    width: 100%;
+    min-height: 300px;
+    height: max-content;
+    padding: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outerDiv::-webkit-scrollbar{
+    display: none;
+}
+
+.txt{
+    font-size: 19px;
+    height: 30px;
+    margin-top: 4px;
+    color: var(--color-p1-text);
+    margin-left: 2rem;
+}
+
+.browseTxt{
+    margin: 0 3.5rem;
+    text-decoration: underline;
+    color: var(--color-p5-text);
+    cursor: pointer;
+}
+
+.browseInpt{
+    display: none;
+}
+
+.bdyBox{
+    width: 100%;
+    height: 100%;
+    flex:1;
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgBox{
+    width: 150px;
+    height: 150px;
+    margin: 1rem;
+    border: 1px dashed var(--brd2-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.img{
+    width: 75px;
+    height: 60px;
+}
+
+.viewCards{
+    width: 100%;
+    margin: 1rem;
+}
+
+/* .imgBox1{
+    width: 30rem;
+    height: 30rem;
+    margin: 10rem;
+    border: 1px dashed var(--brd2-color);
+   
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+} */
+
+.fsi {
+    font-size: 25px;
+    width: 50px; /* Adjust the width and height as needed */
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 50%; /* This makes the element fully rounded */
+    padding: 10px; /* You might want to adjust this */
+    background-color: grey;
+    color: white;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nmreview{
+
+    display: flex;
+    align-items: center;
+   
+}
+.comment{
+    /* border: none;
+    outline: none; */
+    align-items:  center;
+    margin-top: 1.7rem; 
+    margin-left: 1.5rem;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 10px;
+     display: flex; 
+      align-items: center;
+     justify-content: center;
+    
+
+    
+    border: 1px solid var(--brd2-color);
+}
+
+.addr button{
+    background-color: orangered;
+    border: none;
+    height: 30px;
+    border-radius: 4px;
+    padding: 10px;
+  padding-bottom: 29px;
+width: 10rem;
+
+    margin-top: 2rem;
+   color: white;
+   font-weight: bold;
+    margin-left: 31rem;
+    font-size: 18px;
+}
+
+.input-wrapper
+{
+    /* color:blue; */
+    font-size: 13px;
+}

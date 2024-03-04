@@ -435,7 +435,7 @@ let Resturants = () => {
           </button>
         </div>
 
-        <div style={{  borderBottom:currentPath === '/resturants' ? '4px solid black' : '', paddingBottom:currentPath === '/resturants'?10:""}}>
+        <div style={{  borderBottom:currentPath === '/resturants' ? '4px solid #e42b88' : '', paddingBottom:currentPath === '/resturants'?10:""}}>
           <button
             onClick={() => navigate("/resturants")}
             style={{
@@ -504,7 +504,7 @@ let Resturants = () => {
         </div>
       </div>
 
-      <div style={{ paddingBottom: "5%",paddingTop:"2%",backgroundColor: "#f8edeb",}}>
+      <div style={{ paddingBottom: "5%",paddingTop:"2%",backgroundColor: "white",}}>
         <div className={css.w7}>
           <div className={css.innerDiv4Title}>
             Inspiration for your first order
@@ -523,7 +523,7 @@ let Resturants = () => {
         </div>
       </div>
 
-      <div className={""} style={{paddingBlock:"3%",backgroundColor: "#fae1dd"}}>
+      <div className={""} style={{paddingBlock:"3%",backgroundColor: "#ddd7dd"}}>
         <div className={css.w7}>
           <div className={css.innerDiv5Title}>Top brands for you</div>
           <div className={css.rollerCarosuel}>

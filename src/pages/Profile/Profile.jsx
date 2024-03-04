@@ -23,13 +23,13 @@ const Help = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#37718e" }}>
+    <div style={{ backgroundColor: "white" }}>
       <NavigationBar2 />
-      <div style={{ backgroundColor: "#37718e", paddingLeft: 30, height: 650 }}>
+      <div style={{ backgroundColor: "white", paddingLeft: 30, height: 650 }}>
         <div style={{ paddingTop: "4%", paddingBottom: "2%" }}>
           <p
             style={{
-              color: "white",
+              color: "#4f026e",
               margin: 0,
               fontFamily: "DexaSemi",
               fontSize: 25,
@@ -39,7 +39,7 @@ const Help = () => {
           </p>
           <p
             style={{
-              color: "white",
+              color: "#4f026e",
               textAlign: "left",
               margin: 0,
               display: "flex",

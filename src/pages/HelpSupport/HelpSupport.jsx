@@ -14,11 +14,11 @@ const Help = () => {
   };
 
   return (
-    <div style={{backgroundColor: "#37718e"}}>
+    <div style={{backgroundColor: "white"}}>
        <NavigationBar2 />
-      <div style={{ backgroundColor: "#37718e", paddingLeft: 30, height: 650 }}>
+      <div style={{ backgroundColor: "white", paddingLeft: 30, height: 650 }}>
         <div style={{paddingTop:"4%",paddingBottom:"2%"}}>
-        <p style={{ color: "white",margin:0,fontFamily:"DexaSemi",fontSize:25}}>Help And Support</p>
+        <p style={{ color: "rgb(79, 2, 110)",margin:0,fontFamily:"DexaSemi",fontSize:25}}>Help And Support</p>
         <p style={{ color: "white", textAlign: "left",margin:0}}>
           Let's take a step ahead and help you better
         </p>

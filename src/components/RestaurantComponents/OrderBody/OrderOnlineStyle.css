@@ -1,43 +1,43 @@
 .order-mainContainer{
-    margin-top:20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  margin-top:20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 .productDesc{
-    margin-top:20px;
-    font-size: 18px;
-    /* margin: 0px; */
-    font-weight: 500;
-    color:black;
+  margin-top:20px;
+  font-size: 18px;
+  /* margin: 0px; */
+  font-weight: 500;
+  color:black;
 }
-  .productPage{
-    width:66%;
-  }
-  .showOrderItem{
-    width:53%;
-  }
+.productPage{
+  width:66%;
+}
+.showOrderItem{
+  width:53%;
+}
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-    width: 2px !important;
-    height:15px !important;
+  width: 2px !important;
+  height:15px !important;
 }
- 
+
 ::-webkit-scrollbar-track {
-    background-color: #ebebeb;
-    -webkit-border-radius: 10px;
-    border-radius: 10%;
-   
+  background-color: #ebebeb;
+  -webkit-border-radius: 10px;
+  border-radius: 10%;
+ 
 }
 
 ::-webkit-scrollbar-thumb {
 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    height:20px !important;
-    background: #6d6d6d !important; 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  height:20px !important;
+  background: #6d6d6d !important; 
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(186, 242, 0) !important; /* color of the scrollbar handle on hover */
-  }
+  background: rgb(186, 242, 0) !important; /* color of the scrollbar handle on hover */
+}

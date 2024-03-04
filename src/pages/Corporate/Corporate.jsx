@@ -472,7 +472,7 @@ let Collaboraters = () => {
 
         <div
           style={{
-            borderBottom: currentPath === "/corporate" ? "4px solid black" : "",
+            borderBottom: currentPath === "/corporate" ? "4px solid #e42b88" : "",
             paddingBottom: currentPath === "/corporate" ? 10 : "",
           }}
         >
@@ -529,7 +529,7 @@ let Collaboraters = () => {
         style={{
           paddingBottom: "5%",
           paddingTop: "2%",
-          backgroundColor: "#f8edeb",
+          backgroundColor: "white",
         }}
       >
         <div className={css.w7}>
@@ -552,7 +552,7 @@ let Collaboraters = () => {
 
       <div
         className={""}
-        style={{ paddingBlock: "3%", backgroundColor: "#fae1dd" }}
+        style={{ paddingBlock: "3%", backgroundColor: "#ddd7dd" }}
       >
         <div className={css.w7}>
           <div className={css.innerDiv5Title}>Top brands for you</div>

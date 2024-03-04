@@ -287,7 +287,7 @@ const Lights = () => {
 
   return (
     <div style={{ marginBlock: "2%", }}>
-      <div className={"css.w7"} style={{paddingInline:"13%",backgroundColor: "#f8edeb",paddingBlock:"3%"}}>
+      <div className={"css.w7"} style={{paddingInline:"13%",backgroundColor: "white",paddingBlock:"3%"}}>
         <div className={css.innerDiv4Title}>
           Inspiration for your first Lightnings order
         </div>
@@ -304,7 +304,7 @@ const Lights = () => {
         </div>
       </div>
 
-      <div className={"css.w7"} style={{marginBottom:"3%",paddingInline:"13%",backgroundColor: "#fae1dd",paddingBlock:"3%"}}>
+      <div className={"css.w7"} style={{marginBottom:"3%",paddingInline:"13%",backgroundColor: "#ddd7dd",paddingBlock:"3%"}}>
         <div className={css.innerDiv5Title}>Top brands for you</div>
         <div className={css.rollerCarosuel}>
           <CarouselUtil>

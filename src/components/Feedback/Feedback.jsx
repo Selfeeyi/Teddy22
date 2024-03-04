@@ -25,7 +25,7 @@ const Feedback = () => {
 
   return (
     <>
-    <div style={{ backgroundColor: "rgb(195, 234, 239)", margin: 0, paddingBlock: "3%" }}>
+    <div style={{ backgroundColor: 'white', margin: 0, paddingBlock: "3%" }}>
       <div>
         <p
           style={{

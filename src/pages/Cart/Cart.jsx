@@ -1,3 +1,4 @@
+
 import React, { useState , useEffect} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import NavigationBar2 from "../../components/Navbars/NavigationBar2/NavigationBar2";
@@ -13,10 +14,20 @@ import { LuPlus, LuMinus } from "react-icons/lu";
 import { BiSolidOffer } from "react-icons/bi";
 import SideDrawer from "../../components/SideDrawer/Sidedrawer";
 import { RxCross2 } from "react-icons/rx";
+
 // import { loadScript } from './path/to/loadScriptFile';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+
 
 
 const Cart = (route) => {
+
+  const [inputValue4, setInputValue4] = useState('');
+
+  const handleChange4 = (event) => {
+    setInputValue4(event.target.value);
+  };
+
   const navigate = useNavigate();
   const location = useLocation();
   console.log('location:-',location)
@@ -110,6 +121,92 @@ useEffect(() => {
     setPackagePrice(JSON.parse(priceOfPackage));
   }
 }, []);
+
+
+const [addressData, setAddressData] = useState({
+ 
+  doorFlatNo: '',
+  landmark: '',
+  addressType: '', // This will hold the type of address (Home, Work, Other)
+});
+
+const handleChange = (e, field) => {
+  setAddressData({
+    ...addressData,
+    [field]: e.target.value,
+  });
+};
+
+const handleAddressTypeChange = (type) => {
+  setAddressData({
+    ...addressData,
+    addressType: type,
+  });
+};
+
+const handleSubmit = () => {
+  // Here you can use the addressData state to save the address and proceed
+  setSavedAddresses([...savedAddresses, addressData]);
+  setAddressData({
+    address: '',
+    doorFlatNo: '',
+    landmark: '',
+    addressType: '',
+  });
+};
+
+const [position, setPosition] = useState({ latitude: null, longitude: null });
+  const [inputValue, setInputValue] = useState('');
+  const [address, setAddress] = useState('');
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        setPosition({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+        fetchAddress(position.coords.latitude, position.coords.longitude);
+      });
+    } else {
+      console.log("Geolocation is not available in your browser.");
+    }
+  }, []);
+
+  const handleMapDrag = (mapProps, map) => {
+    const newPosition = {
+      latitude: map.center.lat(),
+      longitude: map.center.lng()
+    };
+    setPosition(newPosition);
+    fetchAddress(newPosition.latitude, newPosition.longitude);
+  };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+  const handleMarkerDrag = (coord, map, e) => {
+    setPosition({
+      latitude: coord.latLng.lat(),
+      longitude: coord.latLng.lng()
+    });
+    fetchAddress(coord.latLng.lat(), coord.latLng.lng());
+  };
+
+  const fetchAddress = async (lat, lng) => {
+    try {
+      const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCgrCF1szBZinuWQybx0xz7l8RStK6qhys`);
+      const data = await response.json();
+      if (data && data.results && data.results.length > 0) {
+        setAddress(data.results[0].formatted_address);
+      } else {
+        setAddress('Address not found');
+      }
+    } catch (error) {
+      console.error('Error fetching address:', error);
+      setAddress('Error fetching address');
+    }
+  };
+
   
   return (
     <div>
@@ -201,6 +298,7 @@ useEffect(() => {
               padding: "5%",
             }}
           >
+
             <div
               style={{
                 display: "flex",
@@ -848,153 +946,147 @@ useEffect(() => {
       </div>
 
       {opendrawer && (
-        <SideDrawer
-          placement="left"
-          width={"25%"}
-          headerStyle={{ padding: "0px" }}
-          closeIcon={<RxCross2 color="black" size={24} />}
-          onClose={() => {
-            setOpendrawer(false);
-            SetTogglePhone(false);
-            SetToggleEmail(false);
-          }}
-          closable={true}
-          visible={opendrawer}
-          bodyStyle={{
-            backgroundColor: "",
-            padding: "25px",
-            paddingRight: "10px",
-          }}
-        >
-          <div style={{ fontFamily: "dexaSemi", fontSize: 20 }}>
-            Add New Address
+  <SideDrawer
+    placement="left"
+    width={"25%"}
+    // height={"50%"}
+    headerStyle={{ padding: "0px" }}
+    onClose={() => {
+      setOpendrawer(false);
+      SetTogglePhone(false);
+      SetToggleEmail(false);
+    }}
+    visible={opendrawer}
+    bodyStyle={{
+      backgroundColor: "",
+      padding: "25px",
+      // height:'100rem', // Adjust the height as needed
+      // overflowY: "scroll",
+    }}
+  >
+ <div style={{ border: '1px solid #ced4da', padding: '6px' }}>
+            {/* <p style={{ marginBlock: '8px', fontWeight: '600', fontSize: '18px' }}>Map</p>  */}
+            <div placeholder="Enter here..."  style={{
+    width: '100%',
+    padding: '10px', // Increase vertical padding
+    height: '0rem', // Increase overall height
+    border: 'none',
+    outline: 'none'
+  }}/>
+  <div style={{ height: '200px',width: '50%', marginTop:'-26px',marginLeft:'-6px'}}>
+  {position.latitude && position.longitude && google ? (
+      <Map
+      google={google}
+      zoom={14}
+      initialCenter={{
+        lat: position.latitude,
+        lng: position.longitude
+      }}
+      draggable={true}
+      onDragend={handleMapDrag} // Handle map drag event
+      style={{ height: '250px',width:'347px' }} // Adjust the height here
+    >
+      <Marker position={{ lat: position.latitude, lng: position.longitude }}
+       draggable={true}
+       onDragend={handleMarkerDrag} 
+      />
+    </Map>
+      ) : (
+        <p>Loading...</p>
+      )}
+  </div>
           </div>
 
-          <div
-            style={{
-              marginBlock: "5%",
-              display: "flex",
-              flexDirection: "column",
-              gap: 25,
-            }}
+
+
+            <div style={{marginTop:'2.7rem'}}>
+      {/* <div style={{ fontFamily: 'dexaSemi', fontSize: 20 }}>
+        Add New Address
+      </div> */}
+
+      <div style={{ marginBlock: '5%', display: 'flex', flexDirection: 'column', gap: 15 }}>
+        
+      <div style={{ border: '1px groove #ced4da', padding: 2 }}>
+          <p style={{ marginBlock: 8, fontWeight: '600',fontSize: 15, }}>{address}</p>
+          <input
+       
+            // placeholder="Enter here..."
+            style={{ width: '100%', paddingBlock: 1, border: 'none', outline: 'none' }}
+            // value={addressData.address}
+            // onChange={(e) => handleChange(e, 'address')}
+          />
+        </div>
+      <div style={{ border: '1px groove #ced4da', padding: 6 }}>
+  {/* <p style={{ marginBlock: 8, fontWeight: '600', fontSize: 18 }}></p> */}
+  {/* <input
+    placeholder="Door /Flat No..."
+   
+    style={{ width: '100%', paddingBlock: 5, border: 'none', outline: 'none' }}
+    value={addressData.doorFlatNo}
+    onChange={(e) => handleChange(e, 'doorFlatNo')}
+  /> */}
+
+<input
+        type="text"
+        style={{ width: '100%', paddingBlock: 5, border: 'none', outline: 'none' }}
+        value={inputValue4}
+        onChange={handleChange4}
+        placeholder="Enter text..."
+      />
+  
+</div>
+
+<div style={{ border: '1px groove #ced4da', padding: 6 , marginTop:'0px' }}>
+  <p style={{ marginBlock: 8, fontWeight: '600', fontSize: 18 }}>Landmark</p>
+  <input
+    placeholder="Enter here..."
+    style={{ width: '100%', paddingBlock: 5, border: 'none', outline: 'none' }}
+    value={addressData.landmark}
+    onChange={(e) => handleChange(e, 'landmark')}
+  />
+</div>
+
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 25 }}>
+          <button
+            style={{ background: '#adb5bd', color: 'white', outline: 'none', border: 'none', paddingInline: '5%', paddingBlock: '3%', borderRadius: 8 }}
+            onClick={() => handleAddressTypeChange('Home')}
           >
-            <div style={{ border: "1px groove #ced4da", padding: 6 }}>
-              <p style={{ marginBlock: 8, fontWeight: "600", fontSize: 18 }}>
-                Address
-              </p>
-              <input
-                placeholder="Enter here..."
-                style={{
-                  width: "100%",
-                  paddingBlock: 5,
-                  border: "none",
-                  outline: "none",
-                }}
-              />
-            </div>
+            Home
+          </button>
 
-            <div style={{ border: "1px groove #ced4da", padding: 6 }}>
-              <p style={{ marginBlock: 8, fontWeight: "600", fontSize: 18 }}>
-                Door /Flat No
-              </p>
-              <input
-                placeholder="Enter here..."
-                style={{
-                  width: "100%",
-                  paddingBlock: 5,
-                  border: "none",
-                  outline: "none",
-                }}
-              />
-            </div>
+          <button
+            style={{ background: '#adb5bd', color: 'white', outline: 'none', border: 'none', paddingInline: '5%', paddingBlock: '3%', borderRadius: 8 }}
+            onClick={() => handleAddressTypeChange('Work')}
+          >
+            Work
+          </button>
+          <button
+            style={{ background: '#adb5bd', color: 'white', outline: 'none', border: 'none', paddingInline: '5%', paddingBlock: '3%', borderRadius: 8 }}
+            onClick={() => handleAddressTypeChange('Other')}
+          >
+            Other
+          </button>
+        </div>
 
-            <div style={{ border: "1px groove #ced4da", padding: 6 }}>
-              <p style={{ marginBlock: 8, fontWeight: "600", fontSize: 18 }}>
-                Landmark
-              </p>
-              <input
-                placeholder="Enter here..."
-                style={{
-                  width: "100%",
-                  paddingBlock: 5,
-                  border: "none",
-                  outline: "none",
-                }}
-              />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 25,
-              }}
-            >
-              <button
-                style={{
-                  background: "#adb5bd",
-                  color: "white",
-                  outline: "none",
-                  border: "none",
-                  paddingInline: "5%",
-                  paddingBlock: "3%",
-                  borderRadius: 8,
-                }}
-              >
-                Home
-              </button>
-
-              <button
-                style={{
-                  background: "#adb5bd",
-                  color: "white",
-                  outline: "none",
-                  border: "none",
-                  paddingInline: "5%",
-                  paddingBlock: "3%",
-                  borderRadius: 8,
-                }}
-              >
-                Work
-              </button>
-
-              <button
-                style={{
-                  background: "#adb5bd",
-                  color: "white",
-                  outline: "none",
-                  border: "none",
-                  paddingInline: "5%",
-                  paddingBlock: "3%",
-                  borderRadius: 8,
-                }}
-              >
-                Other
-              </button>
-            </div>
-            <div>
-              <button
-                style={{
-                  background: "#FC2260",
-                  color: "white",
-                  outline: "none",
-                  border: "none",
-                  paddingInline: "5%",
-                  paddingBlock: "3%",
-                  borderRadius: 8,
-                  width: "100%",
-                  fontFamily:"dexaSemi"
-                }}
-              >
-                SAVE ADRESS AND PROCEED
-              </button>
-            </div>
-          </div>
+        <div>
+          
+        <button
+            style={{ background: '#FC2260', color: 'white', outline: 'none', border: 'none', paddingInline: '5%', paddingBlock: '3%', borderRadius: 8, width: '100%', fontFamily: 'dexaSemi' }}
+            onClick={handleSubmit}
+          >
+            SAVE ADDRESS AND PROCEED
+          </button>
+        </div>
+      </div>
+    </div>
         </SideDrawer>
       )}
+
+      
     </div>
   );
 };
 
-export default Cart;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyCgrCF1szBZinuWQybx0xz7l8RStK6qhys'
+})(Cart);

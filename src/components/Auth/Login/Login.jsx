@@ -162,3 +162,162 @@ let Login = ({ setAuth, setLoggedIn }) => {
 };
 
 export default Login;
+
+
+
+
+
+
+// import { useState, useEffect } from "react";
+// import { createPortal } from "react-dom";
+
+// import closeBtn from "/images/closeBtn.jpg";
+// import loginCss from "./Login.module.css";
+// import EnterOTP from "../../Auth/EnterOTP/EnterOTP";
+
+// const Login = ({ setAuth, setLoggedIn }) => {
+//   const [phoneNumber, setPhoneNumber] = useState('');
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [otpModal, setOTPModal] = useState(false);
+
+//   useEffect(() => {
+//     // Retrieve login number from local storage if available
+//     const storedPhoneNumber = localStorage.getItem('phoneNumber');
+//     if (storedPhoneNumber) {
+//       setPhoneNumber(storedPhoneNumber);
+//     }
+//   }, []);
+
+//   const sendOTPUrl = "https://userpanel.selfeey.com/api.selfeey.com/all_user_api/user_otp_api.php";
+
+//   const handleSendOTP = async () => {
+//     // Validate phone number before sending OTP
+//     const phoneNumberRegex = /^\d{10}$/;
+//     if (!phoneNumber.match(phoneNumberRegex)) {
+//       console.error("Invalid phone number. Please enter a 10-digit number.");
+//       // Display phone number error modal or handle it as needed
+//       return;
+//     }
+
+//     try {
+//       setIsLoading(true);
+//       await sendOTP(phoneNumber);
+//       setOTPModal(true);
+//       // Save login number to local storage
+//       localStorage.setItem('phoneNumber', phoneNumber);
+//     } catch (error) {
+//       console.error("Error sending OTP:", error);
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+
+//   const sendOTP = async (phoneNumber) => {
+//     try {
+//       const requestBody = {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//           number: phoneNumber,
+//           action: "register",
+//         }),
+//       };
+//       const response = await fetch(sendOTPUrl, requestBody);
+
+//       if (!response.ok) {
+//         throw new Error(
+//           `Error sending OTP. Server returned status: ${response.status}`
+//         );
+//       }
+
+//       const data = await response.json();
+//       console.log("OTP Sent:", data);
+
+//       if (!data.success) {
+//         throw new Error("Failed to send OTP");
+//       }
+//     } catch (error) {
+//       console.error("Error sending OTP:", error);
+//       throw error;
+//     }
+//   };
+
+//   let loginDiv = (
+//     <div className={loginCss.outerDiv}>
+//       <div className={loginCss.modal}>
+//         <div className={loginCss.header}>
+//           <span className={loginCss.ttl}>Login</span>
+//           <span
+//             className={loginCss.closeBtn}
+//             onClick={() =>
+//               setAuth({ closed: true, login: false, signup: false })
+//             }
+//           >
+//             <img
+//               className={loginCss.closeBtnImg}
+//               src={closeBtn}
+//               alt="close button"
+//             />
+//           </span>
+//         </div>
+
+//         {otpModal ? (
+//           <EnterOTP
+//             setModal={setOTPModal}
+//             setLoggedIn={setLoggedIn}
+//             setAuth={setAuth}
+//             phoneNumber={phoneNumber}
+//           />
+//         ) : (
+//           <div>
+//             <div className={loginCss.lgBox}>
+//               <input
+//                 className={loginCss.phoneInp}
+//                 type="tel"
+//                 placeholder="Phone number ..."
+//                 value={phoneNumber}
+//                 onChange={(e) => setPhoneNumber(e.target.value)}
+//               />
+//               <button
+//                 className={
+//                   phoneNumber?.length === 10
+//                     ? [loginCss.btn, loginCss.Sbtn].join(" ")
+//                     : loginCss.btn
+//                 }
+//                 onClick={handleSendOTP}
+//               >
+//                 {isLoading ? (
+//                   <>
+//                     <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+//                     <span>Sending OTP...</span>
+//                   </>
+//                 ) : (
+//                   'Send OTP'
+//                 )}
+//               </button>
+//             </div>
+
+//             <hr className={loginCss.break} />
+//             <div className={loginCss.newToZomato}>
+//               New to Zomato?{" "}
+//               <div
+//                 className={loginCss.createAcc}
+//                 onClick={() =>
+//                   setAuth({ closed: false, login: false, signup: true })
+//                 }
+//               >
+//                 Create Account
+//               </div>
+//             </div>
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   );
+
+//   return createPortal(loginDiv, document.getElementById("modal"));
+// };
+
+// export default Login;
